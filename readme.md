@@ -1,7 +1,7 @@
 Landing - Page
 
 🌟 About:
-Welcome to <h3>My Landing-Page</h3>, a revolutionary browser homepage designed to transform the way you start your online journey. Say goodbye to generic and uninspiring start pages – [Your Project Name] empowers you to personalize your browser homepage like never before
+Welcome to <b>My Landing-Page</b>, a revolutionary browser homepage designed to transform the way you start your online journey. Say goodbye to generic and uninspiring start pages – [Your Project Name] empowers you to personalize your browser homepage like never before
 
 🚀 Key Features:
 
