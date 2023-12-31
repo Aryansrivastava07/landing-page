@@ -105,7 +105,7 @@ setTimeout(function () {
         document.getElementById("lazyload").classList.add("aftback");
         document.getElementById("lazyload").classList.remove("befback");
     };
-    downloadingImage.src = "walpaper2.jpg";
+    downloadingImage.src = "../assets/walpaper2.jpg";
 }, 2000);
 
 // document.querySelector(".app-container-plus").onclick = ()=>{
