@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315866627662535"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/res.css">
+    <link rel="icon" type="image/x-icon" href="https://www.tattletale.com/wp-content/uploads/2023/01/home-icon.png">
+    <link rel="img" href="../assets/walpaper2.jpg" loading="lazy">
+    <title>Hello ! </title>
+</head>
+
+<body class="befback" id="lazyload">
+    <div class="container">
+        <div class="speed-dial" draggable="false">
+            <a href="https://www.youtube.com/" draggable="false">
+                <div class="speed-dial-element"></div>
+                <p>Youtube</p>
+            </a>
+            <a href="https://www.gmail.com" draggable="false">
+                <div class="speed-dial-element"></div>
+                <p>Gmail</p>
+            </a>
+            <a href="https://www.chess.com" draggable="false">
+                <div class="speed-dial-element"></div>
+                <p>Chess</p>
+            </a>
+            <a href="https://www.facebook.com" draggable="false">
+                <div class="speed-dial-element"></div>
+                <p>Facebook</p>
+            </a>
+        </div>
+        <div class="search-box">
+            <p id="img">
+                <img src="../assets/bing-search.webp" id="bing_img" style="display:none" draggable="false">
+                <img src="../assets/google-search.webp" id="google_img" draggable="false">
+                <img src="../assets/youtube_img.webp" style="display:none" id="youtube_img" draggable="false">
+            </p>
+            <input type="text" placeholder="Search anything" id="search" autocomplete="off">
+            <button id="search-button" class="search-button" onclick="Search();" type="button">
+                <img src="../assets/search.png" alt="search" draggable="false">
+            </button>
+        </div>
+        <div class="autocomp" id="autocomp">
+        </div>
+        <div class="app-container" id="app_cont">
+            <div class="app-container-element" ><a href="https://github.com/" draggable="false">
+                    <img src="../assets/github.png" draggable="false">
+                    <div>Github</div>
+                    <div class="link">https://github.com/</div>
+                </a></div>
+            <div class="app-container-element"><a href="https://dash.cloudflare.com" draggable="false">
+                    <img src="../assets/cloudflare.webp" draggable="false">
+                    <div>Cloudflare</div>
+                    <div class="link">https://dash.cloudflare.com</div>
+                </a></div>
+            <div class="app-container-element"><a href="https://aryan9456.github.io/portfolio/" draggable="false">
+                    <img src="../assets/portfolio.webp" draggable="false">
+                    <div>Portfolio</div>
+                    <div class="link">https://aryan9456.github.io/portfolio/</div>
+                </a></div>
+            <div class="app-container-element"><a href="https://glbg.servergi.com:8072/ISIMGLB/Login" draggable="false">
+                    <img src="../assets/gl.webp" draggable="false">
+                    <div>Student Sim</div>
+                    <div class="link">https://glbg.servergi.com:8072/ISIMGLB/Login</div>
+                </a></div>
+            <div class="app-container-element"><a href="https://www.hackerrank.com/dashboard/" draggable="false">
+                    <img src="../assets/hacker.svg" draggable="false">
+                    <div>Hacker Rank</div>
+                    <div class="link">https://www.hackerrank.com/dashboard/</div>
+                </a></div>
+            <div class="app-container-element"><a href="https://stackoverflow.com/" draggable="false">
+                    <img src="../assets/stack.png" draggable="false">
+                    <div>Stackoverflow</div>
+                    <div class="link">https://stackoverflow.com/</div>
+                </a></div>
+            <!-- <div class="app-container-plus">+</div> -->
+            <div class="social">
+                <a href="https://www.instagram.com/" draggable="false">
+                    <div class="social-media"></div>
+                </a>
+                <a href="https://www.facebook.com/" draggable="false">
+                    <div class="social-media"></div>
+                </a>
+                <a href="https://in.linkedin.com/" draggable="false">
+                    <div class="social-media"></div>
+                </a>
+            </div>
+        </div>
+        <div class="app_cont_togle"></div>
+        <div class="weather" id="loadlazy">
+            <a class="weatherwidget-io" href="https://forecast7.com/en/28d4777d50/greater-noida/" data-label_1=""
+                data-label_2="" data-icons="Climacons Animated" data-mode="Current" data-theme="dark"
+                data-basecolor="transparent" data-textcolor="#e8e7e7b1" id="weather_old"></a>
+                <!-- <div class="weather_loc">
+                    <input type="text" placeholder="Enter city name" aria-controls="suggest-list" class="sc-ef820e5c-1 gMUqqQ" value="Berlin" autocomplete="off">
+                    <div hidden=""><ul role="listbox" id="suggest-list" class="sc-ef820e5c-3 ldRlzB"></ul></div>
+                    <button type="submit" onclick="changeloc();">submit</button>
+                </div> -->
+        </div>
+        <div class="clock">
+            <div>
+                <div class="clock_dial"></div>
+                <div class="clock_dial"></div>
+                <div class="clock_dial"></div>
+                <div class="clock_dial"></div>
+                <div class="clock_dial"></div>
+                <div class="clock_dial"></div>
+            </div>
+            <div>
+                <div class="clock_hand" id="minute"></div>
+                <div class="clock_hand" id="hour"></div>
+                <div class="clock_hand" id="second"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+</script>
+<script src="../js/script.js"></script>
+<script src="autocomplete.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FR9WLG7DD0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FR9WLG7DD0');
+</script>
+</html>
