@@ -1,7 +1,7 @@
 Landing - Page
 
 🌟 About:
-[Your Project Name] is a [brief description of your project]. [Highlight any unique features or goals.]
+Welcome to ###My Landing-Page###, a revolutionary browser homepage designed to transform the way you start your online journey. Say goodbye to generic and uninspiring start pages – [Your Project Name] empowers you to personalize your browser homepage like never before
 
 🚀 Key Features:
 
@@ -32,7 +32,7 @@ This project is licensed under the [Your License] - see the LICENSE file for det
 
 🔗 Links:
 
-Demo
+Demo - 
 Website
 Issues
 Changelog
