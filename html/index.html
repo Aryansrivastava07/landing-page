@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1315866627662535"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,9 +27,9 @@
                 <div class="speed-dial-element"></div>
                 <p>Chess</p>
             </a>
-            <a href="https://www.facebook.com" draggable="false">
+            <a href="https://leetcode.com/problemset/" draggable="false">
                 <div class="speed-dial-element"></div>
-                <p>Facebook</p>
+                <p>Leetcode</p>
             </a>
         </div>
         <div class="search-box">
@@ -48,20 +46,22 @@
         <div class="autocomp" id="autocomp">
         </div>
         <div class="app-container" id="app_cont">
-            <div class="app-container-element" ><a href="https://github.com/" draggable="false">
+            <!-- <div class="app-container-element">
+                <a href="https://github.com/" draggable="false">
                     <img src="../assets/github.png" draggable="false">
                     <div>Github</div>
                     <div class="link">https://github.com/</div>
+                </a>
+            </div>
+            <div class="app-container-element"><a href="https://www.codingninjas.com/" draggable="false">
+                    <img src="../assets/coding_ninjas.png" draggable="false">
+                    <div>Coding Ninjas</div>
+                    <div class="link">https://www.codingninjas.com/</div>
                 </a></div>
-            <div class="app-container-element"><a href="https://dash.cloudflare.com" draggable="false">
-                    <img src="../assets/cloudflare.webp" draggable="false">
-                    <div>Cloudflare</div>
-                    <div class="link">https://dash.cloudflare.com</div>
-                </a></div>
-            <div class="app-container-element"><a href="https://aryan9456.github.io/portfolio/" draggable="false">
-                    <img src="../assets/portfolio.webp" draggable="false">
-                    <div>Portfolio</div>
-                    <div class="link">https://aryan9456.github.io/portfolio/</div>
+            <div class="app-container-element"><a href="https://chat.openai.com/" draggable="false">
+                    <img src="../assets/chatgpt.png" draggable="false">
+                    <div>ChatGPT</div>
+                    <div class="link">https://chat.openai.com/</div>
                 </a></div>
             <div class="app-container-element"><a href="https://glbg.servergi.com:8072/ISIMGLB/Login" draggable="false">
                     <img src="../assets/gl.webp" draggable="false">
@@ -73,12 +73,22 @@
                     <div>Hacker Rank</div>
                     <div class="link">https://www.hackerrank.com/dashboard/</div>
                 </a></div>
-            <div class="app-container-element"><a href="https://stackoverflow.com/" draggable="false">
-                    <img src="../assets/stack.png" draggable="false">
+            <div class="app-container-element"><a href="https://discord.com/channels/@me" draggable="false">
+                    <img src="../assets/discord.png" draggable="false">
                     <div>Stackoverflow</div>
-                    <div class="link">https://stackoverflow.com/</div>
-                </a></div>
-            <!-- <div class="app-container-plus">+</div> -->
+                    <div class="link">https://discord.com/channels/@me</div>
+                </a>
+            </div> -->
+            <div class="app-container-plus">+</div>
+            <dialog class="dialog">
+                <p>Greetings, one and all!</p>
+                <form method="post" id="dialog" name="dialog">
+                    <input type="text" name="Name" required>
+                    <input type="url" name="URL" required>
+                    <input type="url" name="Logo" required>
+                    <input type="submit" value="OK" name="submit">
+                </form>
+            </dialog>
             <div class="social">
                 <a href="https://www.instagram.com/" draggable="false">
                     <div class="social-media"></div>
@@ -89,6 +99,9 @@
                 <a href="https://in.linkedin.com/" draggable="false">
                     <div class="social-media"></div>
                 </a>
+                <a href="https://web.whatsapp.com/" draggable="false">
+                    <div class="social-media"></div>
+                </a>
             </div>
         </div>
         <div class="app_cont_togle"></div>
@@ -96,11 +109,6 @@
             <a class="weatherwidget-io" href="https://forecast7.com/en/28d4777d50/greater-noida/" data-label_1=""
                 data-label_2="" data-icons="Climacons Animated" data-mode="Current" data-theme="dark"
                 data-basecolor="transparent" data-textcolor="#e8e7e7b1" id="weather_old"></a>
-                <!-- <div class="weather_loc">
-                    <input type="text" placeholder="Enter city name" aria-controls="suggest-list" class="sc-ef820e5c-1 gMUqqQ" value="Berlin" autocomplete="off">
-                    <div hidden=""><ul role="listbox" id="suggest-list" class="sc-ef820e5c-3 ldRlzB"></ul></div>
-                    <button type="submit" onclick="changeloc();">submit</button>
-                </div> -->
         </div>
         <div class="clock">
             <div>
@@ -123,14 +131,27 @@
     !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
 </script>
 <script src="../js/script.js"></script>
-<script src="autocomplete.js"></script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FR9WLG7DD0"></script>
+<script src="../js/autocomplete.js"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FR9WLG7DD0');
+    let dialog = document.querySelector('dialog');
+    let dialogForm = document.querySelector('#dialog');
+    dialogForm.addEventListener('submit', function () {
+        dialog.close();
+    });
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwfd8agDwTgDHpPaIdvIe82jVLqtt16FkPiELKczIq6ojbQ5I54sl2t6wL-5RzKK4sCNg/exec'
+    const form = document.forms['dialog']
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => Alert("Success!"))
+            .then(() => form.reset())
+            .then(() => {
+                while (document.getElementsByClassName("app-container-element").length > 0)
+                    document.getElementById("app_cont").removeChild(document.querySelector(".app-container-element"));
+                fetch_app_cont()
+            })
+            .catch(error => Alert('Error!', error.message))
+    })
 </script>
+
 </html>

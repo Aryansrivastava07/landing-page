@@ -14,51 +14,48 @@ document.getElementById('img').onclick = () => {
             //     document.getElementById('search').value = text;
             //     whole_link = text;
             // }
-            if(document.getElementById('search').value.length >1)
-            {
+            if (document.getElementById('search').value.length > 1) {
                 document.getElementById('search').value = "";
-            }
-            else if(document.getElementById('search').value.length <= 1){
+            } else if (document.getElementById('search').value.length <= 1) {
                 document.getElementById('search').value = text;
             }
         })
 };
 
-document.addEventListener('keypress', (event) => {
-    if (document.activeElement != search) {
-        search.focus();
-    }
-});
 document.addEventListener('keydown', (event) => {
+    if (event.key !== "Control" && event.key !== "Shift" && event.key !== "Tab" && event.key !== "CapsLock" && event.key !== "Enter" && event.key !== "AltGraph" && event.key !== "Alt") {
+        if (document.activeElement != search) {
+            search.focus();
+        }
+    }
     if (search.value == "Y " || search.value == "y ") {
         x = 1;
         document.getElementById("youtube_img").style.cssText = 'display:block;';
         document.getElementById("bing_img").style.cssText = 'display:none;';
         document.getElementById("google_img").style.cssText = 'display:none;';
-        document.getElementById('search').value = "";
-    }
-    else if (search.value == "G " || search.value == "g ") {
+        clear();
+    } else if (search.value == "G " || search.value == "g ") {
         x = 0;
         document.getElementById("youtube_img").style.cssText = 'display:none;';
         document.getElementById("bing_img").style.cssText = 'display:none;';
         document.getElementById("google_img").style.cssText = 'display:block;';
-        document.getElementById('search').value = "";
-    }
-    else if (search.value == "B " || search.value == "b ") {
+        clear();
+    } else if (search.value == "B " || search.value == "b ") {
         x = 2;
         document.getElementById("youtube_img").style.cssText = 'display:none;';
         document.getElementById("bing_img").style.cssText = 'display:block;';
         document.getElementById("google_img").style.cssText = 'display:none;';
-        document.getElementById('search').value = "";
-    }
-    else if (event.ctrlKey && event.key === "v") {
+        clear();
+    } else if (event.ctrlKey && event.key === "v") {
         navigator.clipboard.readText()
             .then(text => {
                 document.getElementById('search').value += text;
                 search.focus();
             })
     }
+
 });
+
 function Search() {
     var text = document.getElementById("search").value;
     var link = "";
@@ -67,15 +64,12 @@ function Search() {
     }
     if (link === "http" || link === "www.") {
         window.location.href = text;
-    }
-    else {
+    } else {
         if (x === 1) {
             var url = 'http://www.youtube.com/search?q=';
-        }
-        else if (x === 0) {
+        } else if (x === 0) {
             var url = 'http://www.google.com/search?q=';
-        }
-        else if (x === 2) {
+        } else if (x === 2) {
             var url = 'http://www.bing.com/search?q=';
         }
         var cleanQuery = text.replace(" ", "+", text);
@@ -83,9 +77,9 @@ function Search() {
         window.location.href = set;
     }
 }
+
 function clear() {
-    var text = "";
-    document.getElementById('search').value = text;
+    document.getElementById('search').value = "";
 }
 
 search.addEventListener("keypress", function (event) {
@@ -105,49 +99,67 @@ setTimeout(function () {
         document.getElementById("lazyload").classList.add("aftback");
         document.getElementById("lazyload").classList.remove("befback");
     };
-    downloadingImage.src = "walpaper2.jpg";
+    downloadingImage.src = "../assets/walpaper2.jpg";
 }, 2000);
 
-// document.querySelector(".app-container-plus").onclick = ()=>{
-//     var app = document.getElementById("app_cont");
-//     var div = document.createElement("div");
-//     app.append(div);
-//     div.classList.add("app-container-plus-added");
-//     this.classList.replace("app-container-plus","app-container-element-added");
-//     var new_app = document
-// }
-function changeloc(){
-    var newloc = document.getElementById("weather_input").value ;
-    var setloc =  document.getElementById("weather_old").href.split("/",5);
-    var newloc_link ="";
-    for(var i=0;i<setloc.length;i++){
-        newloc_link += setloc[i] + "/" ;
-    } 
+document.querySelector(".app-container-plus").onclick = () => {
+    let dialog = document.querySelector('dialog');
+    dialog.showModal();
+}
+
+function changeloc() {
+    var newloc = document.getElementById("weather_input").value;
+    var setloc = document.getElementById("weather_old").href.split("/", 5);
+    var newloc_link = "";
+    for (var i = 0; i < setloc.length; i++) {
+        newloc_link += setloc[i] + "/";
+    }
     newloc_link = newloc_link + newloc + "/";
     document.getElementById("weather_old").href = newloc_link;
     document.getElementById("loadlazy").style.cssText = 'display:none';
     setTimeout(function () {
         document.getElementById("loadlazy").style.cssText = 'display:block';
     }, 50);
-    console.log(document.getElementById("weather_old").href);
 }
 const hour = document.getElementById("hour");
 const min = document.getElementById("minute");
 const sec = document.getElementById("second");
 
 const setClock = () => {
-	let day = new Date();
-	let hh = day.getHours();
-	let mm = day.getMinutes() ;
-	let ss = day.getSeconds() ;
-	// hour.style.rotate = `${(hh+(mm/60))*30-180}deg`;
-	// min.style.rotate = `${(mm*6)-180}deg`;
-	// sec.style.rotate = `${(ss*6)-180}deg`;
-    hour.style.setProperty('--hr-deg-start',`${(hh+(mm/60))*30-180}deg`); 
-    hour.style.setProperty('--hr-deg-end',`${(hh+(mm/60))*30+180}deg`); 
-    min.style.setProperty('--mn-deg-start',`${(mm+(ss/60))*6-180}deg`); 
-    min.style.setProperty('--mn-deg-end',`${(mm+(ss/60))*6+180}deg`); 
-    sec.style.setProperty('--sc-deg-start',`${(ss*6)-180}deg`); 
-    sec.style.setProperty('--sc-deg-end',`${(ss*6)+180}deg`); 
+    let day = new Date();
+    let hh = day.getHours();
+    let mm = day.getMinutes();
+    let ss = day.getSeconds();
+    // hour.style.rotate = `${(hh+(mm/60))*30-180}deg`;
+    // min.style.rotate = `${(mm*6)-180}deg`;
+    // sec.style.rotate = `${(ss*6)-180}deg`;
+    hour.style.setProperty('--hr-deg-start', `${(hh+(mm/60))*30-180}deg`);
+    hour.style.setProperty('--hr-deg-end', `${(hh+(mm/60))*30+180}deg`);
+    min.style.setProperty('--mn-deg-start', `${(mm+(ss/60))*6-180}deg`);
+    min.style.setProperty('--mn-deg-end', `${(mm+(ss/60))*6+180}deg`);
+    sec.style.setProperty('--sc-deg-start', `${(ss*6)-180}deg`);
+    sec.style.setProperty('--sc-deg-end', `${(ss*6)+180}deg`);
 };
 setClock();
+let appcontainer_data = "";
+
+function fetch_app_cont() {
+    fetch("https://script.google.com/macros/s/AKfycbxt3S081g3872CrhKRcDg8ZnNacFLSqwjrHT9pdWqCyv9aoekNn_yEFgM2Z8tV6F-QTxg/exec")
+        .then(response => response.json())
+        .then(data => {
+            appcontainer_data = data;
+        }).then(() => {
+            for (let i = 1; i < appcontainer_data.data.length; i++) {
+                let app = document.createElement("div");
+                app.classList.add("app-container-element");
+                app.innerHTML = `
+            <a href = "${appcontainer_data.data[i].URL}" draggable = "false" >
+            <img src = "${appcontainer_data.data[i].Logo}" draggable = "false" >
+            <div>${appcontainer_data.data[i].Name}</div><div class = "link" >${appcontainer_data.data[i].URL}</div>
+            </a>
+            `;
+                document.getElementById("app_cont").insertBefore(app, document.querySelector(".app-container-plus"));
+            }
+        });
+}
+fetch_app_cont();

@@ -5,8 +5,8 @@
 }
 
 :root {
-  --clock-diameter:150px;
-  --clock-size:clamp(100px,var(--clock-diameter), 600px);
+  --clock-diameter: 150px;
+  --clock-size: clamp(100px, var(--clock-diameter), 600px);
 }
 
 *::-webkit-scrollbar {
@@ -111,8 +111,8 @@
 }
 
 .speed-dial a:nth-child(4) .speed-dial-element {
-  box-shadow: 1px 2px 2px 2px rgba(3, 1, 18, 0.7);
-  background: url(../assets/facebook.webp), black;
+  box-shadow: 1px 2px 2px 2px rgb(141, 144, 141);
+  background: url(../assets/leetcode.png), black;
   background-position: center;
   background-size: cover;
 }
@@ -231,6 +231,7 @@
 
 .app-container {
   margin: 5vh 0;
+  height: 40vh;
   grid-template-columns: repeat(2, 25vw);
   grid-auto-rows: 12vh;
   gap: 0px 20vw;
@@ -242,9 +243,7 @@
 }
 
 .app-container-element,
-.app-container-plus,
-.app-container-element-added,
-.app-container-plus-added {
+.app-container-plus {
   height: 8vh;
   width: 20vw;
   background-color: rgba(247, 232, 232, 0.122);
@@ -254,8 +253,7 @@
   overflow: hidden;
 }
 
-.app-container-plus,
-.app-container-plus-added {
+.app-container-plus {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -268,17 +266,29 @@
     1px -1px 2px rgb(152, 152, 152);
 }
 
-.app-container-element:nth-of-type(1):hover a>img {
-  filter: drop-shadow(-2px 2px 10px rgb(200, 0, 255));
+/* .app-container-element:nth-of-type(1):hover a>img {
+  filter: drop-shadow(-2px 2px 5px rgb(200, 0, 255));
 }
 
 .app-container-element:nth-of-type(2):hover a>img {
   filter: drop-shadow(-2px 2px 5px rgba(249, 144, 33, 0.632));
+} */
+
+.app-container-element:hover a>img {
+  filter: drop-shadow(-2px 2px 5px rgba(200, 220, 248, 0.571));
 }
 
-.app-container-element:nth-of-type(3):hover a>img {
-  filter: drop-shadow(-2px 2px 10px rgb(33, 123, 249));
+/* .app-container-element:nth-of-type(4):hover a>img {
+  filter: drop-shadow(-2px 2px 5px rgba(249, 173, 33, 0.456));
 }
+
+.app-container-element:nth-of-type(5):hover a>img {
+  filter: drop-shadow(-2px 2px 5px rgba(62, 249, 33, 0.511));
+}
+
+.app-container-element:nth-of-type(6):hover a>img {
+  filter: drop-shadow(-2px 2px 5px rgba(33, 123, 249, 0.681));
+} */
 
 .app-container-element>a {
   display: grid;
@@ -288,11 +298,12 @@
 }
 
 .app-container-element>a>img {
+  aspect-ratio: 1/1;
   height: 6vh;
-  padding: 1vh 20vh;
+  object-fit: cover;
+  padding: 1vh 0;
   grid-row-start: 1;
   grid-row-end: 3;
-  aspect-ratio: 1;
 }
 
 .link {
@@ -364,6 +375,12 @@ a {
   background-size: cover;
 }
 
+.social a:nth-child(4) .social-media {
+  background: url(https://thumbs.dreamstime.com/b/web-180643538.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
 .social-media:hover {
   transform: scale(1.1);
 }
@@ -429,9 +446,11 @@ a {
     scale: 1;
   }
 }
-.clock *{
+
+.clock * {
   box-sizing: border-box;
 }
+
 .clock {
   height: var(--clock-size);
   width: var(--clock-size);
@@ -442,17 +461,19 @@ a {
   right: 2%;
   overflow: hidden;
 }
-.clock::before{
+
+.clock::before {
   content: "";
   position: absolute;
   height: 100%;
   width: 100%;
   background: url(https://www.pngmart.com/files/23/Clock-Face-PNG-Transparent.png);
-  background-size:111%;
+  background-size: 111%;
   background-position: center;
   border-radius: 50%;
   filter: invert(1);
 }
+
 .clock::after {
   content: "12";
   position: absolute;
@@ -465,7 +486,7 @@ a {
 
 .clock_dial {
   /* max-height: calc(var(--clock-diameter)/1.1); */
-  --height:clamp(100%,calc(var(--clock-diameter)/1.012),calc(var(--clock-diameter)/1.01));
+  --height: clamp(100%, calc(var(--clock-diameter)/1.012), calc(var(--clock-diameter)/1.01));
   height: var(--height);
   width: calc(var(--clock-diameter)/150);
   border-top: solid calc(var(--clock-diameter)/30) rgba(255, 255, 255, 0.699);
@@ -473,12 +494,13 @@ a {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%,0);
-  transform-origin:0 calc(var(--height)/2) ;
-  rotate: 0deg ;
+  transform: translate(-50%, 0);
+  transform-origin: 0 calc(var(--height)/2);
+  rotate: 0deg;
 }
 
-.clock_dial::before,.clock_dial::after {
+.clock_dial::before,
+.clock_dial::after {
   content: "";
   position: absolute;
   transform: translate(0, 0);
@@ -488,16 +510,19 @@ a {
   border-radius: 50vh;
   scale: 4;
 }
-.clock_dial::before{
+
+.clock_dial::before {
   top: 2%;
 }
-.clock_dial::after{
+
+.clock_dial::after {
   bottom: 2%;
 }
 
 .clock_dial:nth-of-type(1)::before {
   display: none;
 }
+
 /* .clock_dial:nth-of-type(n) {
   background: #ce414179;
 } */
@@ -520,92 +545,105 @@ a {
 .clock_dial:nth-of-type(6) {
   rotate: 150deg;
 }
-.clock_hand{
+
+.clock_hand {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   transform-origin: 0 0;
   border-radius: 10px;
 }
-#second{
+
+#second {
   width: calc(var(--clock-diameter)/200);
   height: calc(var(--clock-diameter)/2.1);
   background-color: rgb(255, 0, 0);
-  animation: second 60s steps(60) infinite ;
-  --sc-deg-start:180deg;
-  --sc-deg-end:540deg;
+  animation: second 60s steps(60) infinite;
+  --sc-deg-start: 180deg;
+  --sc-deg-end: 540deg;
 }
+
 @keyframes second {
-  from{
-      rotate: var(--sc-deg-start);
+  from {
+    rotate: var(--sc-deg-start);
   }
-  to{
-      rotate: var(--sc-deg-end);
+
+  to {
+    rotate: var(--sc-deg-end);
   }
 }
-#hour::after{
+
+#hour::after {
   content: "";
   position: absolute;
   width: calc(var(--clock-diameter)/20);
   height: calc(var(--clock-diameter)/20);
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: red;
   border-radius: 50vh;
   color: aliceblue;
 }
-#second::before{
+
+#second::before {
   content: "";
   position: absolute;
   width: calc(var(--clock-diameter)/50);
   height: calc(var(--clock-diameter)/8);
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: red;
   border-radius: 50vh;
 }
-#minute{
+
+#minute {
   width: calc(var(--clock-diameter)/60);
   height: calc(var(--clock-diameter)/2.5);
   background-color: rgb(255, 252, 252);
-  animation: minute 3600s linear infinite ;
-  --mn-deg-start:180deg;
-  --mn-deg-end:540deg;
+  animation: minute 3600s linear infinite;
+  --mn-deg-start: 180deg;
+  --mn-deg-end: 540deg;
 }
-#second::after{
+
+#second::after {
   content: "";
   position: absolute;
   width: calc(var(--clock-diameter)/100);
   height: calc(var(--clock-diameter)/100);
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: rgb(255, 255, 255);
   border-radius: 50vh;
   color: aliceblue;
 }
+
 @keyframes minute {
-  from{
-      rotate: var(--mn-deg-start);
+  from {
+    rotate: var(--mn-deg-start);
   }
-  to{
-      rotate: var(--mn-deg-end);
+
+  to {
+    rotate: var(--mn-deg-end);
   }
 }
-#hour{
+
+#hour {
   width: calc(var(--clock-diameter)/40);
   height: calc(var(--clock-diameter)/4);
   background-color: rgb(255, 252, 252);
-  animation: hour 43200s linear infinite ;
-  --hr-deg-start:180deg;
-  --hr-deg-end:540deg;
+  animation: hour 43200s linear infinite;
+  --hr-deg-start: 180deg;
+  --hr-deg-end: 540deg;
 }
+
 @keyframes hour {
-  from{
-      rotate: var(--hr-deg-start);
+  from {
+    rotate: var(--hr-deg-start);
   }
-  to{
-      rotate: var(--hr-deg-end);
+
+  to {
+    rotate: var(--hr-deg-end);
   }
 }
 
@@ -617,4 +655,30 @@ a {
   .search-box {
     display: none;
   }
+}
+
+.dialog {
+  /* display: none; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 1; */
+  /* height: 100; */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  color: white;
+  padding: 1em;
+  text-align: center;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+#dialog {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
 }
