@@ -25,7 +25,7 @@ for (const key in container.speedDial) {
 // add speed dial -------------------------------------------------------------------------------------------------------------------------------------------------
 
 function addSpeedDial(element) {
-  console.log(document.querySelectorAll(".speedDialChild").length);
+  // console.log(document.querySelectorAll(".speedDialChild").length);
   if(document.querySelectorAll(".speedDialChild").length >= 3){
     document.querySelector(".speedDialAdd").style.cssText = "opacity:0;display:none;";
   }
