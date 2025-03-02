@@ -38,7 +38,7 @@ async function auto(name, datalist){
         return;
     }
     // console.log(`http://api.weatherapi.com/v1/search.json?key=0dc6ac6acd894f5a91d91701251502&q=${encodeURIComponent(name)}`);
-    const ans = await fetch(`http://api.weatherapi.com/v1/search.json?key=0dc6ac6acd894f5a91d91701251502&q=${encodeURIComponent(name)}`);
+    const ans = await fetch(`https://api.weatherapi.com/v1/search.json?key=0dc6ac6acd894f5a91d91701251502&q=${encodeURIComponent(name)}`);
     const data = await ans.json();
     if(data.length === 0){
         return;
