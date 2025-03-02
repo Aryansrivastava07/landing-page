@@ -5,7 +5,7 @@ async function doo(loc){
     document.querySelector(".weatherReport").classList.remove("disabled");
     document.querySelector(".sum").textContent= data.current.condition.text;
     document.querySelector(".temp").textContent= data.current.feelslike_c + "°C";
-    console.log( data.location);
+    // console.log( data.location);
     document.querySelector(".locationName").textContent = data.location.name;
     // document.querySelector(".location").textContent= data.location.name + ", " + data.location.region + ", " + data.location.country;
     // document.querySelector(".wind").textContent= "Wind: " + data.current.wind_kph + " km/h";
