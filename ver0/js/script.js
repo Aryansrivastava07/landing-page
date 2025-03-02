@@ -3,6 +3,31 @@ const search = document.getElementById('search');
 const engine = document.getElementById('engine');
 var whole_link = "";
 // document.onload = chick();
+
+// fetch conainers -----------------------------------------------------------------------------------------------------------------
+
+function fetch_app_cont() {
+    fetch("https://script.google.com/macros/s/AKfycbxt3S081g3872CrhKRcDg8ZnNacFLSqwjrHT9pdWqCyv9aoekNn_yEFgM2Z8tV6F-QTxg/exec")
+        .then(response => response.json())
+        .then(data => {
+            appcontainer_data = data;
+        }).then(() => {
+            for (let i = 1; i < appcontainer_data.data.length; i++) {
+                let app = document.createElement("div");
+                app.classList.add("app-container-element");
+                app.innerHTML = `
+            <a href = "${appcontainer_data.data[i].URL}" draggable = "false" >
+            <img src = "${appcontainer_data.data[i].Logo}" draggable = "false" >
+            <div>${appcontainer_data.data[i].Name}</div><div class = "link" >${appcontainer_data.data[i].URL}</div>
+            </a>
+            `;
+                document.getElementById("app_cont").insertBefore(app, document.querySelector(".app-container-plus"));
+            }
+        });
+}
+
+// thumbnails -----------------------------------------------------------------------------------------------------------------
+
 document.getElementById('img').onclick = () => {
     navigator.clipboard.readText()
         .then(text => {
@@ -21,6 +46,8 @@ document.getElementById('img').onclick = () => {
             }
         })
 };
+
+// keyboard events -----------------------------------------------------------------------------------------------------------------
 
 document.addEventListener('keydown', (event) => {
     if (event.key !== "Control" && event.key !== "Shift" && event.key !== "Tab" && event.key !== "CapsLock" && event.key !== "Enter" && event.key !== "AltGraph" && event.key !== "Alt") {
@@ -56,6 +83,8 @@ document.addEventListener('keydown', (event) => {
 
 });
 
+// search bar -----------------------------------------------------------------------------------------------------------------
+
 function Search() {
     var text = document.getElementById("search").value;
     var link = "";
@@ -89,23 +118,24 @@ search.addEventListener("keypress", function (event) {
     }
 });
 
-setTimeout(function () {
-    document.getElementById("loadlazy").style.cssText = 'display:block';
-}, 5000);
+// background image -----------------------------------------------------------------------------------------------------------------
 
-setTimeout(function () {
-    var downloadingImage = new Image();
-    downloadingImage.onload = function () {
-        document.getElementById("lazyload").classList.add("aftback");
-        document.getElementById("lazyload").classList.remove("befback");
-    };
-    downloadingImage.src = "../assets/walpaper2.jpg";
-}, 2000);
+var downloadingImage = new Image();
+downloadingImage.onload = function () {
+    document.getElementById("lazyload").classList.add("aftback");
+    document.getElementById("lazyload").classList.remove("befback");
+    fetch_app_cont();
+}
+downloadingImage.src = "../assets/walpaper2.jpg";
+
+// new container -----------------------------------------------------------------------------------------------------------------
 
 document.querySelector(".app-container-plus").onclick = () => {
     let dialog = document.querySelector('dialog');
     dialog.showModal();
 }
+
+// weather location -----------------------------------------------------------------------------------------------------------------
 
 function changeloc() {
     var newloc = document.getElementById("weather_input").value;
@@ -121,6 +151,9 @@ function changeloc() {
         document.getElementById("loadlazy").style.cssText = 'display:block';
     }, 50);
 }
+
+// clock -----------------------------------------------------------------------------------------------------------------
+
 const hour = document.getElementById("hour");
 const min = document.getElementById("minute");
 const sec = document.getElementById("second");
@@ -142,24 +175,3 @@ const setClock = () => {
 };
 setClock();
 let appcontainer_data = "";
-
-function fetch_app_cont() {
-    fetch("https://script.google.com/macros/s/AKfycbxt3S081g3872CrhKRcDg8ZnNacFLSqwjrHT9pdWqCyv9aoekNn_yEFgM2Z8tV6F-QTxg/exec")
-        .then(response => response.json())
-        .then(data => {
-            appcontainer_data = data;
-        }).then(() => {
-            for (let i = 1; i < appcontainer_data.data.length; i++) {
-                let app = document.createElement("div");
-                app.classList.add("app-container-element");
-                app.innerHTML = `
-            <a href = "${appcontainer_data.data[i].URL}" draggable = "false" >
-            <img src = "${appcontainer_data.data[i].Logo}" draggable = "false" >
-            <div>${appcontainer_data.data[i].Name}</div><div class = "link" >${appcontainer_data.data[i].URL}</div>
-            </a>
-            `;
-                document.getElementById("app_cont").insertBefore(app, document.querySelector(".app-container-plus"));
-            }
-        });
-}
-fetch_app_cont();

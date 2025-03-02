@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" id="name" name="datal" list="options" autocomplete="off">
+        <datalist id="options" class="datalist"> 
+        </datalist>
+        <input type="submit" id="btn" value="bt">
+    </form>
+    <div class="weather_report">
+        <img src="http://cdn.weatherapi.com/weather/64x64/day/113.png" class="icon">
+        <div>
+            <p class="temp">25&degC</p>
+            <p class="sum"> Mist</p>
+            <!-- <p class="loc"> Delhi</p> -->
+        </div>
+    </div>
+</body>
+<script>
+   async function doo(){
+        var name = document.getElementById('name').value;
+        const ans = await fetch(`http://api.weatherapi.com/v1/current.json?key=0dc6ac6acd894f5a91d91701251502&q=${name}`);
+        const data = await ans.json();
+        // console.log(data.current);
+        document.querySelector(".icon").setAttribute('src',data.current.condition.icon);
+        document.querySelector(".sum").textContent= data.current.condition.text;
+        document.querySelector(".temp").textContent= data.current.feelslike_c + "°C";
+        console.log(data.current.feelslike_c);
+    }
+    document.getElementById('form').addEventListener('submit', function(e){
+        e.preventDefault();
+        if(document.getElementById('name').value === ''){
+            alert('Please enter a valid city name');
+            return;
+        }
+        if(validateInput()){
+            doo();
+            document.querySelector('.datalist').innerHTML  = "";
+        }
+    });
+    document.getElementById('name').addEventListener('input', function(e){
+        auto();
+    });
+
+    async function auto(){
+        var name = document.getElementById('name').value;
+        if(name === ''){
+            return;
+        }
+        // console.log(`http://api.weatherapi.com/v1/search.json?key=0dc6ac6acd894f5a91d91701251502&q=${encodeURIComponent(name)}`);
+        const ans = await fetch(`http://api.weatherapi.com/v1/search.json?key=0dc6ac6acd894f5a91d91701251502&q=${encodeURIComponent(name)}`);
+        const data = await ans.json();
+        if(data.length === 0){
+            return;
+        }
+        if(data.length>=1){
+        data.forEach(element => {
+            if(!(exists(element.name))){
+                document.querySelector('.datalist').innerHTML += `
+                <option value="${element.name}" label = "${element.region}" class="option" >
+                    `;
+            }
+        });
+    }}
+    function exists(name){
+        const options = document.getElementById("options").options;
+        for (let i = 0; i < options.length; i++) {
+            if (name === options[i].value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function validateInput() {
+            const input = document.getElementById("name").value;
+            const options = document.getElementById("options").options;
+            for (let i = 0; i < options.length; i++) {
+                if (input === options[i].value) {
+                    return true;
+                }
+            }
+            console.log(document.querySelector('.datalist').innerHTML);
+            alert("Please select a valid option from the list.");
+            return false;
+        }
+</script>
+</html>

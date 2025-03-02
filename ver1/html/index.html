@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/res.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://www.tattletale.com/wp-content/uploads/2023/01/home-icon.png"
+    />
+    <link rel="img" href="../assets/walpaper2.jpg" loading="lazy" />
+    <title>Hello !</title>
+  </head>
+  <body class="befBack" id="LazyLoad">
+    <div class="container">
+      <div class="speedDial" draggable="false" id="SpeedDial">
+        <button class="deleteSpeeddial" id="DeleteSpeeddial">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Delete-button.svg/1725px-Delete-button.svg.png"
+            alt=""
+          />
+        </button>
+        <dialog class="speeddialDialog" id="SpeeddialDialog">
+          <p>Add your Favourite websites !</p>
+          <form method="dialog" id="SpeeddialForm" name="speeddialForm">
+            <label for="Name">Name</label>
+            <input type="text" name="Name" placeholder="Name of Website" title="Name of website (will be visible of page)" required />
+            <label for="URL">URL</label>
+            <input type="url" name="URL" placeholder="Url of Website" title="Url of image (Must start with http or https)" required />
+            <label for="Logo">Logo</label>
+            <input type="url" name="Logo" placeholder="Url of image" title="Url of image (Minimum 180x160px)" required />
+            <input type="submit" value="Add" name="submit" />
+            <input type="button" value="Cancel" name="cancel" onclick="SpeedDialDialogCancel()"/>
+          </form>
+        </dialog>
+        <div class="speedDialAdd">
+          <a href="#" draggable="false" onclick="openDialog('speeddialDialog')">
+            <div class="speedDialElement">
+              <!-- <img src="/assets/youtube.jpg" alt="" /> -->
+              +
+            </div>
+            <p>Add item</p>
+          </a>
+        </div>
+        <!-- <div>
+          <a href="https://www.youtube.com/" draggable="false">
+            <div class="speed-dial-element">
+              <img src="/assets/youtube.jpg" alt="" />
+            </div>
+            <p>Youtube</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://www.gmail.com" draggable="false">
+            <div class="speed-dial-element">
+              <img src="/assets/gmail.webp" alt="" />
+            </div>
+            <p>Gmail</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://www.chess.com" draggable="false">
+            <div class="speed-dial-element">
+              <img src="/assets/chess.jpg" alt="" />
+            </div>
+            <p>Chess</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://leetcode.com/problemset/" draggable="false">
+            <div class="speed-dial-element">
+              <img src="/assets/leetcode.png" alt="" />
+            </div>
+            <p>Leetcode</p>
+          </a>
+        </div> -->
+      </div>
+      <div class="searchBox">
+        <p id="Img">
+          <img
+            src="../assets/bing-search.webp"
+            id="BingImg"
+            style="display: none"
+            draggable="false"
+          />
+          <img
+            src="../assets/google-search.webp"
+            id="GoogleImg"
+            draggable="false"
+          />
+          <img
+            src="../assets/youtube_img.webp"
+            style="display: none"
+            id="YoutubeImg"
+            draggable="false"
+          />
+        </p>
+        <input
+          type="text"
+          list="browsers"
+          placeholder="Search anything"
+          id="Search"
+          autocomplete="off"
+        />
+
+        <button
+          id="SearchButton"
+          class="searchButton"
+          onclick="Search();"
+          type="button"
+        >
+          <img src="../assets/search.png" alt="search" draggable="false" />
+        </button>
+        <div class="autoComp" id="AutoComp">
+          <!-- <datalist id="completions" style="height:10.1em;overflow:hidden"> -->
+          <!-- </datalist> -->
+          <!-- <div class="autocomp_div">jeifjeof</div>
+                 <div class="autocomp_div">jeifjeof</div>
+                 <div class="autocomp_div">jeifjeof</div>
+                 <div class="autocomp_div">jeifjeof</div> -->
+        </div>
+      </div>
+      <div class="appContainer" id="AppCont">
+        <button class="deleteShortcut" id="DeleteShortcut">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Delete-button.svg/1725px-Delete-button.svg.png"
+            alt=""
+          />
+        </button>
+        <div
+          class="appContainerAdd"
+          draggable="true"
+          onclick="openDialog('shortcutDialog')"
+        >
+          +
+        </div>
+        <dialog class="shortcutDialog" id="ShortcutDialog">
+          <p>Add your Favourite websites !</p>
+          <form method="dialog" id="ShortcutForm" name="shortcutForm">
+            <label for="Name">Name</label>
+            <input type="text" name="Name" placeholder="Name of Website" title="Name of website (will be visible of page)" required />
+            <label for="URL">URL</label>
+            <input type="url" name="URL" placeholder="Url of Website" title="Url of image (Must start with http or https)" required />
+            <label for="Logo">Logo</label>
+            <input type="url" name="Logo" placeholder="Url of image" title="Url of image (Minimum 180x160px)" required />
+            <input type="submit" value="Add" name="submit" />
+            <input type="button" value="Cancel" name="cancel" onclick="ShortcutDialogCancel()"/>
+          </form>
+        </dialog>
+        <div class="social">
+          <a href="https://www.instagram.com/" draggable="false">
+            <div class="socialMedia"></div>
+          </a>
+          <a href="https://www.facebook.com/" draggable="false">
+            <div class="socialMedia"></div>
+          </a>
+          <a href="https://in.linkedin.com/" draggable="false">
+            <div class="socialMedia"></div>
+          </a>
+          <a href="https://web.whatsapp.com/" draggable="false">
+            <div class="socialMedia"></div>
+          </a>
+        </div>
+      </div>
+      <div class="weather" id="Weather">
+        <div class="editLocation">
+          <span>
+            <button
+              type="button"
+              class="locationButton"
+              onclick="locinputtoggle()"
+            ></button
+            ><br />
+            <button
+              type="button"
+              class="locationButton cancelButton"
+              onclick="locinputcancel()"
+            ></button>
+          </span>
+          <input
+            type="text"
+            placeholder="Enter Your City"
+            id="LocationInput"
+            name="location"
+            class="locationInput"
+            list="Options"
+            autocomplete="no"
+          />
+          <datalist id="Options" class="datalist"> </datalist>
+          <div class="locationName"></div>
+        </div>
+        <div class="weatherReport disabled">
+          <img src="" class="icon" alt="Weather icon" />
+          <div>
+            <p class="temp"></p>
+            <p class="sum"></p>
+            <!-- <p class="loc"> Delhi</p> -->
+          </div>
+        </div>
+      </div>
+      <div class="clock">
+        <div>
+          <div class="clockDial"></div>
+          <div class="clockDial"></div>
+          <div class="clockDial"></div>
+          <div class="clockDial"></div>
+          <div class="clockDial"></div>
+          <div class="clockDial"></div>
+        </div>
+        <div>
+          <div class="clockHand" id="Minute"></div>
+          <div class="clockHand" id="Hour"></div>
+          <div class="clockHand" id="Second"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>© 2022-2025</p>
+      <p>Created by <a href="">Aryan Srivastava</a></p>
+    </div>
+    <div class="popup" id="Popup">
+      <div class="closeBtn">
+        <button type="button" onclick="closePopup()">
+          <img
+            src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png"
+            alt=""
+          />
+        </button>
+      </div>
+      <h1>Welcome to Your Own Landing Page</h1>
+      <div class="popupHeading">
+        Let's Know about our <span class="text_high">USP</span> features !
+      </div>
+      <div class="features">
+        <div id="Feature1">
+          <img src="../assets/plus.png" alt="" />
+          <div>
+            <h2>Customize your favourite and Speed Dials.</h2>
+            <p>Click on the + icon to add your favourite websites and speed dials.</p>
+          </div>
+        </div>
+        <div id="Feature2">
+          <img src="../assets/search.gif" alt="" />
+          <div>
+            <h2>Search on any search engine</h2>
+            <p>
+              Add Special characters before your search keyterm to search on
+              your preferred engine
+            </p>
+            <p>"g " - Google</p>
+            <p>"b " - Bing</p>
+            <p>"y " - Youtube</p>
+          </div>
+        </div>
+        <div id="Feature3">
+          <div class="shortcuts">
+            <p><kbd>Ctrl</kbd> + <kbd>z</kbd> - Undo your seacrh query</p>
+            <p>
+              <kbd>ctrl</kbd> + <kbd>v</kbd> - Paste last copied text in seach
+              box
+            </p>
+            <p>
+              <kbd>Shift</kbd> + <kbd>Backspace</kbd> - Delete entire search
+              query
+            </p>
+          </div>
+          <div>
+            <h2>Use Shortcuts to be faster than others!</h2>
+            <p>Boost your productivity with these shortcuts!</p>
+          </div>
+        </div>
+        <div id="Feature4">
+          <div>
+            <form class="locationFormPopup">
+              <input
+                type="text"
+                placeholder="Enter Your City"
+                id="Location"
+                name="locations ss s"
+                class="locationInputPopup"
+                list="OptionsPopup"
+                autocomplete="one-time-code"
+              />
+              <datalist id="OptionsPopup" class="datalistPopup"> </datalist>
+              <!-- onclick="setWeather()" -->
+              <button type="submit" class="locationButtonPopup">
+                Set Location
+              </button>
+            </form>
+          </div>
+          <div>
+            <h2>Real Time Weather and clock</h2>
+            <p>
+              Stay updated with the latest weather and time information directly
+              on your landing page.
+            </p>
+          </div>
+        </div>
+      </div>
+      <ul class="carouselIndicators">
+        <li
+          class="indicator indicatorHighlight"
+          id="Indicator1"
+          onclick="nextFeature(1)"
+        ></li>
+        <li class="indicator" id="Indicator2" onclick="nextFeature(2)"></li>
+        <li class="indicator" id="Indicator3" onclick="nextFeature(3)"></li>
+        <li class="indicator" id="Indicator4" onclick="nextFeature(4)"></li>
+      </ul>
+      <div class="buttons">
+        <button type="button" onclick="closePopup()">Close</button>
+        <button type="button" id="NextPopup" onclick="nextFeature()">
+          Next
+        </button>
+      </div>
+    </div>
+  </body>
+  <script src="../js/script.js"></script>
+  <script src="../js/weather.js"></script>
+  <!-- <script src="../js/autocomplete.js"></script> -->
+  <!-- <script src="https://www.google.com/complete/search?client=hp&hl=en&q=helo&callback=autocomplete"></script> -->
+</html>
