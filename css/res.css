@@ -1,0 +1,48 @@
+@media only screen and (max-width: 600px) {
+    .app-container {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 20vh;
+      gap: 20px;
+    }
+    .search {
+      flex-direction: column;
+      align-items: center;
+    }
+    .search-box {
+      width: 80%;
+      margin: 20px 0;
+    }
+    .speed-dial {
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        width: auto;
+      }
+  }
+
+  @media only screen and (max-width: 850px) {
+    .container *{
+      display: none !important;
+    }
+    .popup{
+      display: grid !important;
+      grid-template-rows: auto !important;
+    }
+  
+    .popup *{
+      display: none;
+    }
+    .prompt::after{
+      content: "Please view this on a larger screen for better experience preferably on a desktop or a laptop";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* display: block; */
+      text-align: center;
+      font-size: 1.5em;
+      padding: 1em;
+    }
+  }
+ 
