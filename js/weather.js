@@ -1,5 +1,5 @@
 async function doo(loc){
-    const ans = await fetch(`http://api.weatherapi.com/v1/current.json?key=0dc6ac6acd894f5a91d91701251502&q=${loc}`);
+    const ans = await fetch(`https://api.weatherapi.com/v1/current.json?key=0dc6ac6acd894f5a91d91701251502&q=${loc}`);
     const data = await ans.json();
     document.querySelector(".icon").setAttribute('src',data.current.condition.icon);
     document.querySelector(".weatherReport").classList.remove("disabled");
